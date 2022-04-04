@@ -37,6 +37,7 @@ admin.site.register(Category)
 
 admin.site.register(Product,   ProductAdmins) #ProductAdims
 
+admin.site.register(Tags)
 admin.site.register(Variant)
 admin.site.register(FuturedImages)
 admin.site.register(SizesOption)

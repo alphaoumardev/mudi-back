@@ -165,3 +165,41 @@ def get_sliders(request):
         slide = Sliders.objects.all().order_by("-id")
         items = SlidersModel(slide, many=True)
         return Response(items.data)
+
+@api_view(["GET"])
+def get_new_products(request):
+    if request.method == "GET":
+        new_products = Product.objects.filter(onsale='New')
+        items = ProductsModel(new_products, many=True)
+        return Response(items.data)
+
+
+@api_view(["GET"])
+def get_onsale_products(request):
+    if request.method == "GET":
+        new_products = Product.objects.filter(onsale='Sale')
+        items = ProductsModel(new_products, many=True)
+        return Response(items.data)
+
+@api_view(["GET"])
+def get_colors(request):
+    if request.method == "GET":
+        colors = ColorsOption.objects.all()
+        items = ColorsOptionModel(colors, many=True)
+        return Response(items.data)
+
+
+@api_view(["GET"])
+def get_sizes(request):
+    if request.method == "GET":
+        sizes = SizesOption.objects.all()
+        items = SizesOptionModel(sizes, many=True)
+        return Response(items.data)
+
+
+@api_view(["GET"])
+def get_tags(request):
+    if request.method == "GET":
+        tags = Tags.objects.all()
+        items = TagModel(tags, many=True)
+        return Response(items.data)

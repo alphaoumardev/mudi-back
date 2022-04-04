@@ -74,6 +74,11 @@ class FuturedImages(models.Model):
     def __str__(self):
         return self.image_url.url
 
+class Tags(models.Model):
+    tag_name = models.CharField(blank=True, null=True, max_length=15, unique=True)
+
+    def __str__(self):
+        return self.tag_name
 
 class ColorsOption(models.Model):
     color_name = models.CharField(blank=True, null=True, max_length=15, unique=True)
@@ -93,6 +98,8 @@ class Variant(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     color = models.ForeignKey(ColorsOption, on_delete=models.CASCADE, blank=True, null=True)
     size = models.ForeignKey(SizesOption, on_delete=models.CASCADE, blank=True, null=True)
+    tag = models.ForeignKey(Tags, on_delete=models.CASCADE, blank=True, null=True)
+
 
 
 class Wishlist(models.Model):

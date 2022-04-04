@@ -32,13 +32,23 @@ class CategoryModel(serializers.ModelSerializer):
         # fields = '__all__'
 
 class ProductsModel(serializers.ModelSerializer):
+    category = CategoryModel(many=False, read_only=True)
+
     class Meta:
         model = Product
-        fields  = '__all__'
+        fields = ["id", "name", "sku", "category", "image", "image_hover",
+                  "description", "brand", "price", "status", "stock", "quantity",
+                  "onsale", "created_at", "updated_at", "deleted_at",]
+        # fields  = '__all__'
 
 class ColorsOptionModel(serializers.ModelSerializer):
     class Meta:
         model = ColorsOption
+        fields = '__all__'
+
+class TagModel(serializers.ModelSerializer):
+    class Meta:
+        model = Tags
         fields = '__all__'
 
 class SizesOptionModel(serializers.ModelSerializer):

@@ -30,5 +30,10 @@ urlpatterns = [
     path('images/<str:pk>', products.get_futured_images, name="images"),
 
     path('sliders/', products.get_sliders, name="sliders"),
+    path('newproducts/', products.get_new_products, name="new_products"),
+    path('onsale/', products.get_onsale_products, name="onsale"),
 
+    path('colors/', products.get_colors, name="colors"),
+    path('sizes/', products.get_sizes, name="sizes"),
+    path('tags/', products.get_tags, name="tags"),
 ]
